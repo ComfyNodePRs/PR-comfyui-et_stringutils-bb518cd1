@@ -116,14 +116,65 @@ class ETTextFormatter10Node(ETTextFormatterNode):
         }
 
 
+class ETATOI:
+    """
+    A node that converts a string to an integer.
+    """
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "text": ("STRING", {"default": "", "multiline": True}),
+            },
+        }
+
+    RETURN_TYPES = ("INT",)
+    RETURN_NAMES = ("integer",)
+
+    CATEGORY = CATEGORY_NAME
+    FUNCTION = "process"
+
+    def process(self, text: str) -> tuple:
+        return (int(text),)
+
+
+class ETITOA:
+    """
+    A node that converts an integer to a string.
+    """
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "integer": ("INT", {"default": 0}),
+            },
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("text",)
+
+    CATEGORY = CATEGORY_NAME
+    FUNCTION = "process"
+
+    def process(self, integer: int) -> tuple:
+        return (str(integer),)
+
+
+
 NODE_CLASS_MAPPINGS = {
     "ETTextFormatter2Node": ETTextFormatter2Node,
     "ETTextFormatter5Node": ETTextFormatter5Node,
     "ETTextFormatter10Node": ETTextFormatter10Node,
+    "ETATOI": ETATOI,
+    "ETITOAT": ETITOA,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "ETTextFormatter2Node": "Text Formatter (2 Arguments)",
     "ETTextFormatter5Node": "Text Formatter (5 Arguments)",
     "ETTextFormatter10Node": "Text Formatter (10 Arguments)",
+    "ETATOI": "Str2Int",
+    "ETITOAT": "Int2Str",
 }
