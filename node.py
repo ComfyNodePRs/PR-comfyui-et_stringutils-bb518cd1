@@ -8,7 +8,7 @@ class AnyType(str):
         return False
 
 
-any = AnyType("*")
+anyType = AnyType("*")
 
 
 class ETTextFormatterNode:
@@ -162,11 +162,51 @@ class ETITOA:
         return (str(integer),)
 
 
+class ETPythonTextScript3Node:
+    """
+    A node that takes a number of text inputs and concatenates them into
+    a single string.
+    """
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "script": ("STRING", {"multiline": True, "tooltip": "A python script to execute. Gets access to arg0~2 and may return text via a result variable."}),
+            },
+            "optional": {
+                "arg0": (anyType, {"forceInput": True, "tooltip": "An argument passed to the script. Value is None if not connected."}),
+                "arg1": (anyType, {"forceInput": True , "tooltip": "An argument passed to the script. Value is None if not connected."}),
+                "arg2": (anyType, {"forceInput": True , "tooltip": "An argument passed to the script. Value is None if not connected."}),
+            },
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("text",)
+
+    CATEGORY = CATEGORY_NAME
+    FUNCTION = "process"
+
+    def process(self, script, arg0=None, arg1=None, arg2=None) -> tuple:
+
+        localVars = {}
+        result = exec(script, {"arg0": arg0, "arg1": arg1, "arg2": arg2}, localVars)
+
+        result = None
+        if "result" in localVars:
+            result = str(localVars["result"])
+
+        return (result,)
+
+    def flatten(self, value: list) -> str:
+        return " ".join([str(s) for s in value])
+
 
 NODE_CLASS_MAPPINGS = {
     "ETTextFormatter2Node": ETTextFormatter2Node,
     "ETTextFormatter5Node": ETTextFormatter5Node,
     "ETTextFormatter10Node": ETTextFormatter10Node,
+    "ETPythonTextScript3Node": ETPythonTextScript3Node,
     "ETATOI": ETATOI,
     "ETITOAT": ETITOA,
 }
@@ -175,6 +215,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "ETTextFormatter2Node": "Text Formatter (2 Arguments)",
     "ETTextFormatter5Node": "Text Formatter (5 Arguments)",
     "ETTextFormatter10Node": "Text Formatter (10 Arguments)",
+    "ETPythonTextScript3Node": "Python Text Script",
     "ETATOI": "Str2Int",
     "ETITOAT": "Int2Str",
 }
