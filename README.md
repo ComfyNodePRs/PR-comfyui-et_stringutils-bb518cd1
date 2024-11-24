@@ -37,6 +37,44 @@ Output
 "Hello, John! Did you know? 42 is the answer to everything."
 ```
 
+### Replace Text
+
+Replaces a string in a text with something else, using either plain text
+replacement or regular expressions (regex).
+
+**Example 1**
+
+Replace a word in a text.
+
+Input
+```text
+text: "Hello, John!"
+replace: "John"
+replacement: "Mr. Smith"
+```
+
+Output
+```text
+"Hello, Mr. Smith!"
+```
+
+**Example 2**
+
+Replace a pattern in a text using regex and use a captured part in the
+replacement.
+
+Input
+```text
+text: "Hello, John! Did you know 42 is the answer to everything?"
+replace: "([0-9]+) is"
+replacement: "\1 is in fact"
+```
+
+Output
+```text
+"Hello, John! Did you know 42 is in fact the answer to everything?"
+```
+
 ### ATOI/ITOA
 
 Two simple nodes to convert strings to integers and vice versa.
