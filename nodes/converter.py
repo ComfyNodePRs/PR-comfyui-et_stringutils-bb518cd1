@@ -7,7 +7,7 @@ class ETATOI:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "text": ("STRING", {"default": "", "multiline": True}),
+                "text": ("STRING", {"default": "", "multiline": False}),
             },
         }
 
@@ -30,7 +30,7 @@ class ETITOA:
     def INPUT_TYPES(s):
         return {
             "required": {
-                "integer": ("INT", {"default": 0}),
+                "integer": ("INT", {"default": 0, "min": -2000000000, "max": 2000000000}),
             },
         }
 
