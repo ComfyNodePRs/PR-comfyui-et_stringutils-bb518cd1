@@ -1,9 +1,13 @@
+from .nodes.combiner import ETSplitTextNode, ETJoinTextNode
 from .nodes.converter import ETATOI, ETITOA
 from .nodes.formatter import ETTextFormatter2Node, ETTextFormatter5Node, ETTextFormatter10Node
 from .nodes.scripting import ETPythonTextScript3Node
 from .nodes.replacer import ETReplaceTextNode
 
 et_nodes = {
+    ("Split Text", ETSplitTextNode),
+    ("Join Text", ETJoinTextNode),
+
     ("ATOI", ETATOI),
     ("ITOA", ETITOA),
 
