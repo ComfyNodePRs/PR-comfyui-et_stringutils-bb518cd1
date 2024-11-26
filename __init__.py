@@ -1,23 +1,35 @@
-from .nodes.combiner import ETSplitTextNode, ETJoinTextNode
+from .nodes.combiner import ETSplitTextNode, ETJoinTextNode, ETSwitchTextNode
 from .nodes.converter import ETATOI, ETITOA
 from .nodes.formatter import ETTextFormatter2Node, ETTextFormatter5Node, ETTextFormatter10Node
 from .nodes.replacer import ETReplaceTextNode
 
-et_nodes = [
-    ("Split Text", ETSplitTextNode),
-    ("Join Text", ETJoinTextNode),
+NODE_CLASS_MAPPINGS = {
+    "ETSplitTextNode": ETSplitTextNode,
+    "ETJoinTextNode": ETJoinTextNode,
+    "ETSwitchTextNode": ETSwitchTextNode,
 
-    ("ATOI", ETATOI),
-    ("ITOA", ETITOA),
+    "ETATOI": ETATOI,
+    "ETITOA": ETITOA,
 
-    ("Text Formatter (2 Arguments)", ETTextFormatter2Node),
-    ("Text Formatter (5 Arguments)", ETTextFormatter5Node),
-    ("Text Formatter (10 Arguments)", ETTextFormatter10Node),
+    "ETTextFormatter2Node": ETTextFormatter2Node,
+    "ETTextFormatter5Node": ETTextFormatter5Node,
+    "ETTextFormatter10Node": ETTextFormatter10Node,
 
-    ("Text Replacer", ETReplaceTextNode),
-]
+    "ETReplaceTextNode": ETReplaceTextNode,
+}
 
-NODE_CLASS_MAPPINGS = {cls.__name__: cls for display_name, cls in et_nodes}
-NODE_DISPLAY_NAME_MAPPINGS = {cls.__name__: display_name for display_name, cls in et_nodes}
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "ETSplitTextNode": "Split Text",
+    "ETJoinTextNode": "Join Text",
+
+    "ETATOI": "ATOI",
+    "ETITOA": "ITOA",
+
+    "ETTextFormatter2Node": "Text Formatter (2 Arguments)",
+    "ETTextFormatter5Node": "Text Formatter (5 Arguments)",
+    "ETTextFormatter10Node": "Text Formatter (10 Arguments)",
+
+    "ETReplaceTextNode": "Text Replacer",
+}
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]
