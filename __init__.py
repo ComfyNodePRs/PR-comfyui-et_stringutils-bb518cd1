@@ -1,7 +1,6 @@
 from .nodes.combiner import ETSplitTextNode, ETJoinTextNode
 from .nodes.converter import ETATOI, ETITOA
 from .nodes.formatter import ETTextFormatter2Node, ETTextFormatter5Node, ETTextFormatter10Node
-from .nodes.scripting import ETPythonTextScript3Node
 from .nodes.replacer import ETReplaceTextNode
 
 et_nodes = {
@@ -16,8 +15,6 @@ et_nodes = {
     ("Text Formatter (10 Arguments)", ETTextFormatter10Node),
 
     ("Text Replacer", ETReplaceTextNode),
-
-    ("Python Text Script (3 Arguments)", ETPythonTextScript3Node),
 }
 
 NODE_CLASS_MAPPINGS = {cls.__name__: cls for display_name, cls in et_nodes}
