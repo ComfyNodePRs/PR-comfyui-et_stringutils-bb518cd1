@@ -21,6 +21,7 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "ETSplitTextNode": "Split Text",
     "ETJoinTextNode": "Join Text",
+    "ETSwitchTextNode": "Switch Text",
 
     "ETATOI": "ATOI",
     "ETITOA": "ITOA",

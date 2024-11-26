@@ -54,3 +54,29 @@ class ETJoinTextNode:
 
         result = prefix + join_with.join(text) + suffix
         return (result,)
+
+
+class ETSwitchTextNode:
+    """
+    A node that outputs one of two options depending on a boolean switch.
+    """
+
+    @classmethod
+    def INPUT_TYPES(s):
+        return {
+            "required": {
+                "option1": ("STRING", {"default": "", "multiline": False, "tooltip": "The option that will returned if the switch is off/false."}),
+                "option2": ("STRING", {"default": "", "multiline": False, "tooltip": "The option that will returned if the switch is on/true."}),
+                "switch": ("BOOLEAN", {"default": False, "label_off": "option1", "label_on": "option2", "tooltip": "The switch that determines which option to return. Option 1 if off, option 2 if on."}),
+            },
+        }
+
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("text",)
+
+    CATEGORY = "exectails/Strings"
+    FUNCTION = "process"
+
+    def process(self, option1: str = "", option2: str = "", switch: bool = False) -> tuple:
+        result = option1 if not switch else option2
+        return (result,)
