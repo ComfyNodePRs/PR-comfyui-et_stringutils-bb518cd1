@@ -5,6 +5,20 @@ Collection of custom nodes for ComfyUI dedicated to the analysis and
 transformation of text strings, such as for formatting and conversions
 between types.
 
+Install
+-----------------------------------------------------------------------------
+
+**Option 1**
+
+Install via [ComfyUI-Manager][3].
+
+**Option 2**
+
+Clone the repository into your ComfyUI custom_nodes directory.
+```text
+git clone https://github.com/exectails/comfyui-et_stringutils
+```
+
 Nodes
 -----------------------------------------------------------------------------
 
@@ -82,3 +96,4 @@ Two simple nodes to convert strings to integers and vice versa.
 
 [1]: https://docs.python.org/3/tutorial/inputoutput.html
 [2]: https://github.com/exectails/comfyui-et_dynamicprompts
+[3]: https://github.com/ltdrdata/ComfyUI-Manager
