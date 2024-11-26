@@ -14,7 +14,7 @@ class ETATOI:
     RETURN_TYPES = ("INT",)
     RETURN_NAMES = ("integer",)
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Strings"
     FUNCTION = "process"
 
     def process(self, text: str) -> tuple:
@@ -37,7 +37,7 @@ class ETITOA:
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("text",)
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Strings"
     FUNCTION = "process"
 
     def process(self, integer: int) -> tuple:

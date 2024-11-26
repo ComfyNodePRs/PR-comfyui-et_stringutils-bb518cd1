@@ -3,7 +3,7 @@ from .nodes.converter import ETATOI, ETITOA
 from .nodes.formatter import ETTextFormatter2Node, ETTextFormatter5Node, ETTextFormatter10Node
 from .nodes.replacer import ETReplaceTextNode
 
-et_nodes = {
+et_nodes = [
     ("Split Text", ETSplitTextNode),
     ("Join Text", ETJoinTextNode),
 
@@ -15,7 +15,7 @@ et_nodes = {
     ("Text Formatter (10 Arguments)", ETTextFormatter10Node),
 
     ("Text Replacer", ETReplaceTextNode),
-}
+]
 
 NODE_CLASS_MAPPINGS = {cls.__name__: cls for display_name, cls in et_nodes}
 NODE_DISPLAY_NAME_MAPPINGS = {cls.__name__: display_name for display_name, cls in et_nodes}

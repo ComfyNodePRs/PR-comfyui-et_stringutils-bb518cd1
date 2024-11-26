@@ -16,7 +16,7 @@ class ETSplitTextNode:
     RETURN_NAMES = ("text",)
     OUTPUT_IS_LIST = (True,)
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Strings"
     FUNCTION = "process"
 
     def process(self, text: str, split_by: str) -> tuple:
@@ -44,7 +44,7 @@ class ETJoinTextNode:
     RETURN_NAMES = ("text",)
     INPUT_IS_LIST = True
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Strings"
     FUNCTION = "process"
 
     def process(self, text: list, join_with: str, prefix: str, suffix: str) -> tuple:

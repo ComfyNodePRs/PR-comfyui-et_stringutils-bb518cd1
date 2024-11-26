@@ -20,7 +20,7 @@ class ETReplaceTextNode:
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("text",)
 
-    CATEGORY = "exectails"
+    CATEGORY = "exectails/Strings"
     FUNCTION = "process"
 
     def process(self, text: str, replace: str, replacement: str, mode: str) -> tuple:
